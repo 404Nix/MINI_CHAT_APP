@@ -12,19 +12,19 @@ const io = new Server(server, {
 })
 
 app.get("/one-on-one", (_req, res) => {
-  res.status(201).json({
+  res.status(200).json({
     message: "success",
   });
 });
 
 app.get("/grp-chat", (_req, res) => {
-  res.status(201).json({
+  res.status(200).json({
     message: "success",
   });
 });
 
 app.get("/broadcast", (_req, res) => {
-  res.status(201).json({
+  res.status(200).json({
     message: "success",
   });
 });
