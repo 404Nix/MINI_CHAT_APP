@@ -1,10 +1,22 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
+import Layout from "../Layout.jsx";
+import Broadcast from "./pages/Broadcast.jsx";
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<Layout />}>
+        <Route path="/broadcast" element={<Broadcast />} />
+        <Route path="/one-on-one" element={<Broadcast />}/>
+        <Route path="/group-chat" element={<Broadcast />} />
+      </Route>
+    </>
+  )
 )
+
+createRoot(document.getElementById("root")).render(
+  <RouterProvider router={router} />
+);
