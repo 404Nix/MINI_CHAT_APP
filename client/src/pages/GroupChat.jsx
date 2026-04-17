@@ -46,7 +46,7 @@ const GroupChat = () => {
                     type="text"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="border-1 focus:outline-none mt-70 px-4 py-4"
+                    className="border focus:outline-none mt-70 px-4 py-4"
                     placeholder="message"
                 />
                 <button
@@ -59,7 +59,7 @@ const GroupChat = () => {
                     type="text"
                     value={room}
                     onChange={(e) => setRoom(e.target.value)}
-                    className="border-1 focus:outline-none ml-10 px-4 py-4"
+                    className="border focus:outline-none ml-10 px-4 py-4"
                     placeholder="room name"
                 />
                 <button
