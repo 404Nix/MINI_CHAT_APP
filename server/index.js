@@ -38,6 +38,30 @@ io.on("connection", (socket) => {
     console.log(m);
     socket.broadcast.emit("message", m);
   });
+
+
+  //One-On-One
+  socket.on("message", (msg) => {
+    console.log(msg);
+    socket.to(msg.socketID).emit("Onemessage", msg.message);
+  })
+
+
+  // Group-Chat
+
+  socket.on("join-room", (room) => {
+    socket.join(room);
+    console.log(`Joined ${room}`);
+  })
+
+  socket.on("group-msg", (msg) => {
+    console.log(msg);
+    const {message, room} = msg;
+    
+    io.to(room).emit("group-message", message);
+  })
+
+
 });
 const port = 4000;
 server.listen(port, () => {
